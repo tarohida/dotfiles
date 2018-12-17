@@ -1,9 +1,20 @@
+git config --global user.name taro-hida
+git config --global user.email hidataro11@gmail.com
+
+if [ -e ~/.vim ] ; then
+  mv ~/.vim{,.bak}
+fi
 mkdir -p ~/.vim/bundle
 git clone https://github.com/Shougo/neobundle.vim  ~/.vim/bundle/neobundle.vim
-ln -Fis ~/dotfiles/.vimrc ~/.vimrc
+mv ~/.vim ~/dotfiles/vimfiles
 ln -Fis ~/dotfiles/vimfiles ~/.vim
+
+if [ -e ~/.vimrc ] ; then
+  mv ~/.vimrc{,.bak}
+fi
+ln -Fis ~/dotfiles/.vimrc ~/.vimrc
+if [ -e ~/.bashrc ] ; then
+  mv ~/.bashrc{,.bak}
+fi
 ln -Fis ~/dotfiles/.bashrc ~/.bashrc
 cd ~/dotfiles
-git config --global user.email hidataro11@gmail.com
-git config --global user.email taro-hida
-
