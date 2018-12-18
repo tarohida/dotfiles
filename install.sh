@@ -6,15 +6,15 @@ if [ -e ~/.vim ] ; then
 fi
 mkdir -vp ~/.vim/bundle
 git clone https://github.com/Shougo/neobundle.vim  ~/.vim/bundle/neobundle.vim
-mv ~/.vim ~/dotfiles/vimfiles
-ln -is ~/dotfiles/vimfiles ~/.vim
+mv -iv ~/.vim ~/dotfiles/vimfiles
+ln -ivs ~/dotfiles/vimfiles ~/.vim
 
 if [ -e ~/.vimrc ] ; then
   mv -iv ~/.vimrc{,.bak}
 fi
-ln -is ~/dotfiles/.vimrc ~/.vimrc
+ln -ivs ~/dotfiles/.vimrc ~/.vimrc
 if [ -e ~/.bashrc ] ; then
   mv -iv ~/.bashrc{,.bak}
 fi
-ln -is ~/dotfiles/.bashrc ~/.bashrc
+ln -ivs ~/dotfiles/.bashrc ~/.bashrc
 cd ~/dotfiles
