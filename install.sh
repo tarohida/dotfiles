@@ -12,9 +12,9 @@ ln -ivs ~/dotfiles/vimfiles ~/.vim
 if [ -e ~/.vimrc ] ; then
   mv -iv ~/.vimrc{,.bak}
 fi
-ln -ivs ~/dotfiles/.vimrc ~/.vimrc
+ln -ivs ~/dotfiles/vimrc ~/.vimrc
 if [ -e ~/.bashrc ] ; then
   mv -iv ~/.bashrc{,.bak}
 fi
-ln -ivs ~/dotfiles/.bashrc ~/.bashrc
+ln -ivs ~/dotfiles/bashrc ~/.bashrc
 cd ~/dotfiles
