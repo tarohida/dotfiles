@@ -22,7 +22,7 @@ fi
 	export GREEN="$(tput setaf 2)"
 	export CYAN="$(tput setaf 6)"
 	export RESET="$(tput sgr0)"
-	export PS1='[\A-${GREEN}\u${RESET}${CYAN}@\H${RESET} \W]\$ '
+	export PS1='[\A ${GREEN}\u${RESET}${CYAN}@\H${RESET} \W]\$ '
 
 # User specific aliases and functions
 #aliases
