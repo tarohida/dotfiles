@@ -28,6 +28,12 @@ source ~/dotfiles/promptrc
 	alias load='source  ~/.bashrc'
 	alias py='python3.6'
 
+#function
+	#personal
+	delete_comment(){
+		sudo cat $1 | grep -v '^#' | sed '/^$/d'
+	}
+
 #exec when login
 echo '-------------------'
 echo ' Now load .bashrc'
