@@ -47,6 +47,9 @@ filetype plugin indent on
   set incsearch
   set wrapscan
   set hlsearch
+
+	"aliases
+	:command  Sp set paste
   
         "for putty client
   colorscheme ron
