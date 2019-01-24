@@ -37,6 +37,6 @@ source ~/dotfiles/promptrc
 	}
 
 #exec when login
-echo '-------------------'
-echo ' Now load .bashrc'
-echo '-------------------'
+#echo '-------------------'
+#echo ' Now load .bashrc'
+#echo '-------------------'
