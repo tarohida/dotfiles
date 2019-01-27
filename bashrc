@@ -29,6 +29,7 @@ source ~/dotfiles/promptrc
 	alias load='source  ~/.bashrc'
 	alias py='python3.6'
 	alias heisei="echo '平成'`date -d '1988 year ago' +'%y'`'年'"
+	alias today="date '+%Y%m%d'"
 
 #function
 	#personal
