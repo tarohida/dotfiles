@@ -50,6 +50,10 @@ filetype plugin indent on
 
 	"aliases
 	:command  Sp set paste
+
+	"keymapping
+	inoremap <Leader>date <C-R>=strftime('%Y/%m/%d (%a)')<CR>
+	nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
   
         "for putty client
   colorscheme ron
