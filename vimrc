@@ -4,7 +4,6 @@ if has('vim_starting')
 endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
-
 NeoBundle 'scrooloose/syntastic'
 
 call neobundle#end()
@@ -52,8 +51,7 @@ filetype plugin indent on
 	:command  Sp set paste
 
 	"keymapping
-	inoremap <Leader>date <C-R>=strftime('%Y/%m/%d (%a)')<CR>
-	nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
+	map date <ESC>i<C-R>=strftime("%Y/%m/%d")<CR>
   
         "for putty client
   colorscheme ron
