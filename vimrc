@@ -8,7 +8,7 @@ NeoBundle 'scrooloose/syntastic'
 
 call neobundle#end()
 filetype plugin indent on
-
+  
 "setting for centos7
 
   "about read file
@@ -39,8 +39,11 @@ filetype plugin indent on
   nnoremap k gk
  
   "about tab
-  set tabstop=2
+  set tabstop=8
+  set softtabstop=2
   set shiftwidth=2
+	set expandtab
+  set smarttab
   set ignorecase
   set smartcase
   set incsearch
