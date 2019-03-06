@@ -22,7 +22,8 @@ source ~/dotfiles/promptrc
 	export PATH=/opt/remi/php72/root/usr/bin:/opt/remi/php72/root/usr/sbin${PATH:+:${PATH}}
 	export LD_LIBRARY_PATH=/opt/remi/php72/root/usr/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 	#personal 
-	export MANPATH=/opt/remi/php72/root/usr/share/man:${MANPATH}
+          #less manual in japanese
+	  export MANPATH=/opt/remi/php72/root/usr/share/man:${MANPATH}
 
 # User specific aliases and functions
 #aliases
