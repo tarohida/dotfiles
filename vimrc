@@ -30,8 +30,6 @@ call plug#end()
   set showmatch
   set laststatus=2
   set wildmode=list:longest
-  nnoremap j gj
-  nnoremap k gk
  
   "about tab
   set tabstop=8
@@ -45,11 +43,57 @@ call plug#end()
   set wrapscan
   set hlsearch
 
-	"aliases
-	:command  Sp set paste
+  "aliases
+  :command  Sp set paste
 
-	"keymapping
-	map date <ESC>i<C-R>=strftime("%Y/%m/%d")<CR>
+  "keymapping
+  inoremap jj <Esc>
+  map date <ESC>i<C-R>=strftime("%Y/%m/%d")<CR>
+  map today <ESC>i<C-R>=strftime("%Y%m%d")<CR>
+  nmap <silent> <Esc><Esc> :nohlsearch<CR>
+  nnoremap j gj
+  nnoremap k gk
+  vnoremap v $h
+  vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v, '\/'), "\n", '\\n', 'g')<CR><CR>
+  nnoremap <C-h> <C-w>h
+  nnoremap <C-j> <C-w>j
+  nnoremap <C-k> <C-w>k
+  nnoremap <C-l> <C-w>l
   
-        "for putty client
+  "for putty client
   colorscheme ron
+  let mapleader = "\<Space>"
+    " Include use statement
+  nmap <Leader>u :call phpactor#UseAdd()<CR>
+  
+  " Invoke the context menu
+  nmap <Leader>mm :call phpactor#ContextMenu()<CR>
+  
+  " Invoke the navigation menu
+  nmap <Leader>nn :call phpactor#Navigate()<CR>
+  
+  " Goto definition of class or class member under the cursor
+  nmap <Leader>o :call phpactor#GotoDefinition()<CR>
+  
+  " Show brief information about the symbol under the cursor
+  nmap <Leader>K :call phpactor#Hover()<CR>
+  
+  " Transform the classes in the current file
+  nmap <Leader>tt :call phpactor#Transform()<CR>
+  
+  " Generate a new class (replacing the current file)
+  nmap <Leader>cc :call phpactor#ClassNew()<CR>
+  
+  " Extract expression (normal mode)
+  nmap <silent><Leader>ee :call phpactor#ExtractExpression(v:false)<CR>
+  
+  " Extract expression from selection
+  vmap <silent><Leader>ee :<C-U>call phpactor#ExtractExpression(v:true)<CR>
+  
+  " Extract method from selection
+  vmap <silent><Leader>em :<C-U>call phpactor#ExtractMethod()<CR>
+
+  let s:local_vimrc = expand('~/.vimrc.local')
+  if filereadable(s:local_vimrc)
+    execute 'source ' . s:local_vimrc
+  endif
