@@ -1,9 +1,25 @@
 set nocompatible
 
+"vimplug
 call plug#begin()
 Plug 'phpactor/phpactor', {'for': 'php', 'do': 'composer install'}
 call plug#end()
   
+"neobundle
+if has('vim_starting')
+   " 初回起動時のみruntimepathにneobundleのパスを指定する
+   set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+call neobundle#begin(expand('~/.vim/bundle/'))
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler'
+NeoBundleLazy 'vim-ruby/vim-ruby' ,{
+\    "autoload" : {"filetypes" : ["ruby"]}
+\}
+call neobundle#end()
+
+filetype plugin indent on
+
 "setting for centos7
 
   "about read file
@@ -44,13 +60,14 @@ call plug#end()
   set hlsearch
 
   "aliases
-  :command  Sp set paste
+  let mapleader = "\<Space>"
 
   "keymapping
   inoremap jj <Esc>
   map date <ESC>i<C-R>=strftime("%Y/%m/%d")<CR>
   map today <ESC>i<C-R>=strftime("%Y%m%d")<CR>
   nmap <silent> <Esc><Esc> :nohlsearch<CR>
+  nmap sp :set paste<CR>
   nnoremap j gj
   nnoremap k gk
   vnoremap v $h
