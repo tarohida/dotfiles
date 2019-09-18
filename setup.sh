@@ -16,5 +16,6 @@ if [ -e ~/.bashrc ] ; then
 fi
 ln -ivs ~/dotfiles/bashrc ~/.bashrc
 
+source ~/.bashrc
+
 cd ~/dotfiles
-source bashrc
