@@ -37,7 +37,8 @@ source ~/dotfiles/promptrc
 #function
 	#personal
 	delete_comment(){
-		sudo cat $1 | grep -v '^#' | sed '/^$/d'
+        sudo cp -vip  $1 $1'.org'
+        sudo cat $1'.org' | grep -v '^#' | sed '/^$/d' | sudo tee $1
 	}
 
 #exec when login
