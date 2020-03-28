@@ -39,8 +39,13 @@ source ~/dotfiles/promptrc
 	#personal
 	delete_comment(){
         sudo cp -vip  $1 $1'.org'
-        sudo cat $1'.org' | grep -v '^#' | sed '/^$/d' | sudo tee $1
+        sudo cat $1'.org' | sed '/^[ \t]*#/d' | sed '/^$/d' | sudo tee $1
 	}
+    command_not_found_handle() {
+        local cmd
+        cmd=${1##*/}
+        echo "\"${cmd}\" not found \(^o^)/"
+    }
 
 #exec when login
 #echo '-------------------'
