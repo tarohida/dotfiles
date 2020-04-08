@@ -15,6 +15,8 @@ source ~/dotfiles/bashrc.local
 # source ~/dotfiles/bashrc.org
 
 # User specific aliases and functions
+# env
+export LESSCHARSET=utf-8
 # aliases
 alias load='source  ~/.bashrc'
 alias heisei="echo '平成'`date -d '1988 year ago' +'%y'`'年'"
