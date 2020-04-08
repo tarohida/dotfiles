@@ -15,23 +15,23 @@ source ~/dotfiles/bashrc.local
 # source ~/dotfiles/bashrc.org
 
 # User specific aliases and functions
+# env
+export LESSCHARSET=utf-8
 # aliases
-    #personal
-    alias load='source  ~/.bashrc'
-    alias heisei="echo '平成'`date -d '1988 year ago' +'%y'`'年'"
-    alias reiwa="echo '令和'`date -d '2018 year ago' +'%y'`'年'"
-    alias today="date '+%Y%m%d'"
-    alias crontab="crontab -i"
+alias load='source  ~/.bashrc'
+alias heisei="echo '平成'`date -d '1988 year ago' +'%y'`'年'"
+alias reiwa="echo '令和'`date -d '2018 year ago' +'%y'`'年'"
+alias today="date '+%Y%m%d'"
+alias crontab="crontab -i"
 
 # functions
-    #personal
-    delete_comment() {
-        sudo cp -vip  $1 $1'.org'
-        sudo cat $1'.org' | sed '/^[ \t]*#/d' | sed '/^$/d' | sudo tee $1
-    }
+delete_comment() {
+    sudo cp -vip  $1 $1'.org'
+    sudo cat $1'.org' | sed '/^[ \t]*#/d' | sed '/^$/d' | sudo tee $1
+}
 
-    command_not_found_handle() {
-        local cmd
-        cmd=${1##*/}
-        echo "\"${cmd}\" not found \(^o^)/"
-    }
+command_not_found_handle() {
+    local cmd
+    cmd=${1##*/}
+    echo "\"${cmd}\" not found \(^o^)/"
+}
