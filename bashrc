@@ -18,11 +18,12 @@ source ~/dotfiles/bashrc.local
 # env
 export LESSCHARSET=utf-8
 # aliases
-alias load='source  ~/.bashrc'
+alias bashrc='source  ~/.bashrc'
 alias heisei="echo '平成'`date -d '1988 year ago' +'%y'`'年'"
 alias reiwa="echo '令和'`date -d '2018 year ago' +'%y'`'年'"
 alias today="date '+%Y%m%d'"
 alias crontab="crontab -i"
+alias less="less -R"
 
 # functions
 delete_comment() {
