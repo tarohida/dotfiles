@@ -4,15 +4,15 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # Source personal runcom
-if [ -f ~/dotfiles/bash_colors ]; then
-    source ~/dotfiles/bash_colors
-else
+if [ ! -f ~/dotfiles/bash_colors ]; then
     curl https://raw.githubusercontent.com/mercuriev/bash_colors/master/bash_colors.sh > ~/dotfiles/bash_colors
 fi
 
-source ~/dotfiles/promptrc
-source ~/dotfiles/bashrc.local
-# source ~/dotfiles/bashrc.org
+test -f ~/dotfiles/bash_colors && source ~/dotfiles/bash_colors
+
+test -f ~/dotfiles/promptrc && source ~/dotfiles/promptrc
+test -f ~/dotfiles/bashrc.local && source ~/dotfiles/bashrc.local
+test -f ~/dotfiles/bashrc.org && source ~/dotfiles/bashrc.org
 
 # User specific aliases and functions
 # env

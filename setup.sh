@@ -1,5 +1,5 @@
 git config --global user.name taro-hida
-git config --global user.email hidataro11@gmail.com
+git config --global user.email sk8trou@gmail.com
 
 # Evacuate old vimrc
 if [ -e ~/.vimrc ] ; then
