@@ -27,8 +27,8 @@ alias less="less -R"
 
 # functions
 delete_comment() {
-    sudo cp -vip  $1 $1'.org'
-    sudo cat $1'.org' | sed '/^[ \t]*#/d' | sed '/^$/d' | sudo tee $1
+    cp -vip  $1 $1'.org'
+    cat $1'.org' | sed '/^[ \t]*#/d' | sed '/^$/d' | tee $1
 }
 
 command_not_found_handle() {
