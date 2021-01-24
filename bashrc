@@ -36,3 +36,8 @@ command_not_found_handle() {
     cmd=${1##*/}
     echo "\"${cmd}\" not found \(^o^)/"
 }
+
+if [[ -t 0 ]]; then
+  stty stop undef
+  stty start undef
+fi
