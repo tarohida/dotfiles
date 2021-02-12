@@ -28,6 +28,10 @@ delete_comment() {
     cat $1'.org' | sed '/^[ \t]*#/d' | sed '/^$/d' | tee $1
 }
 
+abpath () {
+    echo `pwd`'/'`ls $1`
+}
+
 command_not_found_handle() {
     local cmd
     cmd=${1##*/}
