@@ -29,7 +29,8 @@ delete_comment() {
 }
 
 abpath () {
-    echo `pwd`'/'`ls $1`
+    relative_path=`echo $1|sed 's|^\./||g'`
+    echo `pwd`'/'`ls ${relative_path}`
 }
 
 command_not_found_handle() {
