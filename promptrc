@@ -7,4 +7,11 @@ export MAGENTA="$(tput setaf 5)"
 export CYAN="$(tput setaf 6)"
 export WHITE="$(tput setaf 6)"
 export RESET="$(tput sgr0)"
-export PS1='[\A ${GREEN}\u${RESET}${CYAN}@\H${RESET} \W]\n\$ '
+
+parse_git_branch() {
+
+git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+
+}
+# https://gist.github.com/kevinchappell/09ca3805a9531b818579
+export PS1='[\A ${GREEN}\u${RESET}${CYAN}@\H${RESET} \W ${RED}$(parse_git_branch)${RESET}]\n\$ '
