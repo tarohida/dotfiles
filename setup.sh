@@ -1,3 +1,5 @@
+#!/bin/bash
+
 git config --global user.name taro-hida
 git config --global user.email sk8trou@gmail.com
 
