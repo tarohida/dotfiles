@@ -1,3 +1,4 @@
+#!/bin/bash
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
@@ -9,7 +10,6 @@ if [ ! -f ~/dotfiles/bash_colors ]; then
 fi
 
 test -f ~/dotfiles/bash_colors && source ~/dotfiles/bash_colors
-
 test -f ~/dotfiles/promptrc && source ~/dotfiles/promptrc
 test -f ~/dotfiles/bashrc.local && source ~/dotfiles/bashrc.local
 test -f ~/dotfiles/bashrc.org && source ~/dotfiles/bashrc.org
