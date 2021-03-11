@@ -2,7 +2,6 @@
 
 ```
 cd ~/
-git clone 'https://github.com/taro-hida/dotfiles.git'
+git clone --depth 1 'https://github.com/taro-hida/dotfiles.git'
 bash ~/dotfiles/setup.sh
-vim
 ```
