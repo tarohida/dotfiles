@@ -12,9 +12,10 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 
 # Evacuate and install bashrc
 if [ -e ~/.bashrc ] ; then
-  mv -iv ~/.bashrc ~/dotfiles/bashrc.org
+  echo ". ~/dotfiles/bashrc.org" >>  ~/.bashrc
+else
+  ln -ivs ~/dotfiles/bashrc ~/.bashrc
 fi
-ln -ivs ~/dotfiles/bashrc ~/.bashrc
 
 . ~/.bashrc
 
