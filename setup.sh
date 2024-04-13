@@ -1,6 +1,10 @@
 #!/bin/bash
 
-git config --global user.name taro-hida
+if ! command -v git &> /dev/null
+then
+    echo "git をインストールしてください"
+    exit 1
+fi
 git config --global user.email sk8trou@gmail.com
 
 # Evacuate old vimrc
