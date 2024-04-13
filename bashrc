@@ -5,15 +5,12 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # Source personal runcom
-if [ ! -f ~/dotfiles/bashrc.d/bash_colors ]; then
-    curl https://raw.githubusercontent.com/mercuriev/bash_colors/master/bash_colors.sh \
-    > ~/dotfiles/bashrc.d/bash_colors
+if [ ! -f ~/dotfiles/bashrc.d/79-bash_colors ]; then
+    curl -o ~/dotfiles/bashrc.d/79-bash_colors \
+    https://raw.githubusercontent.com/mercuriev/bash_colors/master/bash_colors.sh
 fi
 
-
 # User specific aliases and functions
-# env
-export LESSCHARSET=utf-8
 # git bash 環境の場合、 start でコマンドが通る
 if ! command -v start &> /dev/null
 then

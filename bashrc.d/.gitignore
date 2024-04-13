@@ -1,4 +1,5 @@
 *
 !.gitignore
-!promptrc
-!99-aliases
+!80-promptrc
+!85-env
+!90-aliases

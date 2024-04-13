@@ -1,3 +1,4 @@
+#!/bin/bash
 # aliases
 alias bashrc='source  ~/.bashrc'
 alias crontab="crontab -i"
