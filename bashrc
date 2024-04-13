@@ -10,55 +10,6 @@ if [ ! -f ~/dotfiles/bashrc.d/79-bash_colors ]; then
     https://raw.githubusercontent.com/mercuriev/bash_colors/master/bash_colors.sh
 fi
 
-# functions
-trim_comment() {
-    if [ -z "$1" ]; then
-        echo "エラー: 引数が必要です"
-        exit 1
-    fi
-    cat $1 | sed '/^[ \t]*#/d' | sed '/^$/d'
-}
-
-abpath () {
-    relative_path=`echo $1|sed 's|^\./||g'`
-    echo `pwd`'/'`ls ${relative_path}`
-}
-
-command_not_found_handle() {
-    local cmd
-    cmd=${1##*/}
-    echo "\"${cmd}\" not found \(^o^)/"
-}
-
-docker-stop-all() {
-    which docker >/dev/null
-    if [ $? -ne 0 ];then
-        echo '`docker` command not found'
-        return 1;
-    fi
-    docker stop `docker ps -q`
-}
-
-docker-compose-up-force () {
-    docker-stop-all
-    docker-compose up
-}
-
-upload-pubkey-to () {
-    PubKey=$(cat $1)
-    Host=$2
-    ssh ${Host} -C "mkdir -p ~/.ssh/ && echo ${PubKey} >> ~/.ssh/authorized_keys && chmod 700 ~/.ssh/ && chmod 600 ~/.ssh/authorized_keys"
-}
-
-setup-git () {
-    read -p "ユーザー名を入力してください: " git_username
-    read -p "メールアドレスを入力してください: " git_email
-    git config --global user.name "$git_username"
-    git config --global user.email "$git_email"
-    echo "user.name: $(git config --global user.name)"
-    echo "user.email: $(git config --global user.email)"
-}
-
 # bashrc.d/ 以下全て読み込み
 for file in ./dotfiles/bashrc.d/* ; do
     if [ -f "$file" ]; then
