@@ -1,6 +1,4 @@
 *
 !.gitignore
 !80-promptrc
-!85-env
-!90-aliases
 !95-functions
