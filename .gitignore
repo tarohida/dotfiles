@@ -1,5 +1,6 @@
 bash_colors
 netrc
-bashrc.org
-bashrc.local
+ashrc.local
 vimfiles
+/backup_*/
+
