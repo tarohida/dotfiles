@@ -17,10 +17,6 @@ test -f ~/dotfiles/bashrc.local && source ~/dotfiles/bashrc.local
 # User specific aliases and functions
 # env
 export LESSCHARSET=utf-8
-# aliases
-alias bashrc='source  ~/.bashrc'
-alias crontab="crontab -i"
-alias less="less -R"
 # git bash 環境の場合、 start でコマンドが通る
 if ! command -v start &> /dev/null
 then
