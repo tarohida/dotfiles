@@ -10,14 +10,6 @@ if [ ! -f ~/dotfiles/bashrc.d/79-bash_colors ]; then
     https://raw.githubusercontent.com/mercuriev/bash_colors/master/bash_colors.sh
 fi
 
-# User specific aliases and functions
-# git bash 環境の場合、 start でコマンドが通る
-if ! command -v start &> /dev/null
-then
-    # ubuntu 環境の場合、 start でエクスプローラ (nautilus) が開くようにする
-    alias start="nautilus"
-fi
-
 # functions
 trim_comment() {
     if [ -z "$1" ]; then
