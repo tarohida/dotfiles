@@ -41,6 +41,7 @@ abpath () {
     relative_path=`echo $1|sed 's|^\./||g'`
     echo `pwd`'/'`ls ${relative_path}`
 }
+
 command_not_found_handle() {
     local cmd
     cmd=${1##*/}
