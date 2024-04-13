@@ -25,4 +25,4 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 
 ln -vs ~/dotfiles/bashrc ~/.bashrc
 
-. ~/.bashrc
+source ~/.bashrc
