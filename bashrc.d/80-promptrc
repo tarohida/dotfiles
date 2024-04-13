@@ -1,4 +1,12 @@
 #!/bin/bash
+bash_colors_dir='~/dotfiles/bashrc.d/.promptrc.d'
+bash_colors_path="$bash_colors_dir"/bash_colors.sh
+mkdir -p "$bash_colors_dir"
+if [ ! -f "$bash_colors_path" ]; then
+    curl -o "$bash_colors_path" \
+    https://raw.githubusercontent.com/mercuriev/bash_colors/master/bash_colors.sh
+fi
+
 export BLACK="$(tput setaf 0)"
 export RED="$(tput setaf 1)"
 export GREEN="$(tput setaf 2)"
