@@ -6,9 +6,6 @@ then
     exit 1
 fi
 
-git config --global user.name tarohida
-git config --global user.email sk8trou@gmail.com
-
 # Evacuate old vimrc
 if [ -e ~/.vimrc ] ; then
   mv -iv ~/.vimrc ~/dotfiles/vimrc.org

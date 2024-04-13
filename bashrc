@@ -58,3 +58,12 @@ upload-pubkey-to () {
     Host=$2
     ssh ${Host} -C "mkdir -p ~/.ssh/ && echo ${PubKey} >> ~/.ssh/authorized_keys && chmod 700 ~/.ssh/ && chmod 600 ~/.ssh/authorized_keys"
 }
+
+setup-git () {
+    read -p "ユーザー名を入力してください: " git_username
+    read -p "メールアドレスを入力してください: " git_email
+    git config --global user.name "$git_username"
+    git config --global user.email "$git_email"
+    echo "user.name: $(git config --global user.name)"
+    echo "user.email: $(git config --global user.email)"
+}
