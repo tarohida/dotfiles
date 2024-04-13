@@ -29,9 +29,12 @@ then
 fi
 
 # functions
-delete_comment() {
-    cp -vip  $1 $1'.org'
-    cat $1'.org' | sed '/^[ \t]*#/d' | sed '/^$/d' | tee $1
+trim_comment() {
+    if [ -z "$1" ]; then
+        echo "エラー: 引数が必要です"
+        exit 1
+    fi
+    cat $1 | sed '/^[ \t]*#/d' | sed '/^$/d'
 }
 
 abpath () {
