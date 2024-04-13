@@ -21,7 +21,12 @@ export LESSCHARSET=utf-8
 alias bashrc='source  ~/.bashrc'
 alias crontab="crontab -i"
 alias less="less -R"
-alias open="nautilus"
+# git bash 環境の場合、 start でコマンドが通る
+if ! command -v start &> /dev/null
+then
+    # ubuntu 環境の場合、 start でエクスプローラ (nautilus) が開くようにする
+    alias start="nautilus"
+fi
 
 # functions
 delete_comment() {
