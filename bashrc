@@ -76,3 +76,10 @@ setup-git () {
     echo "user.name: $(git config --global user.name)"
     echo "user.email: $(git config --global user.email)"
 }
+
+# bashrc.d/ 以下全て読み込み
+for file in ./dotfiles/bashrc.d/* ; do
+    if [ -f "$file" ]; then
+        source "$file"
+    fi
+done
