@@ -9,6 +9,6 @@ setup-git () {
 }
 
 setup-dirs() {
-    sudo chown root.${USER} /usr/local/bin/
-    sudo chmod g+wrx /usr/local/bin/
+    sudo chown :${USER} /usr/local/bin/ /etc/hosts
+    sudo chmod g+wrx /usr/local/bin /etc/hosts
 }
