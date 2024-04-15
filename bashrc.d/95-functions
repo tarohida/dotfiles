@@ -50,8 +50,8 @@ docker-compose-up-force () {
 
 ssh-upload-pubkey-to () {
     if [ "$1" = "" ]; then
-        echo "need to specify first arg"
-        exit 1
+        echo "You have to specify first arg"
+        return 1
     fi
     KeyPath=$2
     if [ "$KeyPath" = "" ]; then
@@ -59,4 +59,18 @@ ssh-upload-pubkey-to () {
     fi
     PubKey=$(cat $KeyPath)
     ssh ${Host} -C "mkdir -p ~/.ssh/ && echo ${PubKey} >> ~/.ssh/authorized_keys && chmod 700 ~/.ssh/ && chmod 600 ~/.ssh/authorized_keys"
+}
+
+# root ユーザで鍵ファイルログインできるようにするスクリプト
+# gcp 環境などで便利
+ssh-upload-pubkey-to-root () {
+    if [ "$1" = "" ]; then
+        echo "You have to specify first arg"
+        return
+    fi
+    KeyPath=~/.ssh/id_ed25519.pub
+    PubKey=$(cat $KeyPath)
+    ssh-upload-pubkey-to "$1"
+    ssh "$1" -C "sudo su -c 'mkdir -p /root/.ssh/ && echo ${PubKey} >> /root/.ssh/authorized_keys && chmod 700 /root/.ssh/ && chmod 600 /root/.ssh/authorized_keys'"
+    ssh "$1" -C "sudo sed -i 's/PermitRootLogin no/PermitRootLogin yes/g' /etc/ssh/sshd_config && sudo systemctl restart sshd"
 }
