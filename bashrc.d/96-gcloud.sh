@@ -11,7 +11,7 @@ gcloud-wrapper () {
     elif [ "$1" = "start" -o "$1" = "up" ]; then
         gcloud compute instances start $2
     elif [ "$1" = "stop" ]; then
-        gcloud comupte instances stop $2
+        gcloud compute instances stop $2
     elif [ "$1" = "ssh" ]; then
         gcloud compute ssh "${@:2}"
     else
