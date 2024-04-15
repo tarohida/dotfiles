@@ -48,8 +48,15 @@ docker-compose-up-force () {
     docker-compose up
 }
 
-upload-pubkey-to () {
-    PubKey=$(cat $1)
-    Host=$2
+ssh-upload-pubkey-to () {
+    if [ "$1" = "" ]; then
+        echo "need to specify first arg"
+        exit 1
+    fi
+    KeyPath=$2
+    if [ "$KeyPath" = "" ]; then
+        KeyPath=~/.ssh/id_ed25519.pub
+    fi
+    PubKey=$(cat $KeyPath)
     ssh ${Host} -C "mkdir -p ~/.ssh/ && echo ${PubKey} >> ~/.ssh/authorized_keys && chmod 700 ~/.ssh/ && chmod 600 ~/.ssh/authorized_keys"
 }
