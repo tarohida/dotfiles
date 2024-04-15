@@ -9,6 +9,19 @@ setup-git () {
 }
 
 setup-dirs() {
-    sudo chown :${USER} /usr/local/bin/ /etc/hosts
-    sudo chmod g+wrx /usr/local/bin /etc/hosts
+    cat <<EOF > ./command.sh
+chown -v :${USER} /usr/local/bin/ /etc/hosts
+chmod -v g+wrx /usr/local/bin
+chmod -v g+wr /etc/hosts
+EOF
+
+    chmod +x ./command.sh
+
+    cat <<EOF
+run this: 
+
+sudo su -
+$(pwd)/command.sh
+
+EOF
 }
