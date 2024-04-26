@@ -6,6 +6,8 @@ export LESSCHARSET=utf-8
 alias bashrc='source  ~/.bashrc'
 alias crontab="crontab -i"
 alias less="less -R"
+alias ll="ls -l"
+alias lla="ls -la"
 
 # git bash 環境の場合、 start でコマンドが通る
 if ! command -v start &> /dev/null
