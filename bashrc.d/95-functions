@@ -6,8 +6,19 @@ export LESSCHARSET=utf-8
 alias bashrc='source  ~/.bashrc'
 alias crontab="crontab -i"
 alias less="less -R"
-alias ll="ls -l"
-alias lla="ls -la"
+alias ll='ls -l --color=auto'
+alias lla='ls -la --color=auto'
+alias ls='ls --color=auto'
+alias l.='ls -d .* --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias xzegrep='xzegrep --color=auto'
+alias xzfgrep='xzfgrep --color=auto'
+alias xzgrep='xzgrep --color=auto'
+alias zegrep='zegrep --color=auto'
+alias zfgrep='zfgrep --color=auto'
+alias zgrep='zgrep --color=auto'
 
 # git bash 環境の場合、 start でコマンドが通る
 if ! command -v start &> /dev/null
