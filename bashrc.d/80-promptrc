@@ -1,5 +1,5 @@
 #!/bin/bash
-bash_colors_dir='~/dotfiles/bashrc.d/.promptrc.d'
+bash_colors_dir="${HOME}/dotfiles/bashrc.d/.promptrc.d"
 bash_colors_path="$bash_colors_dir"/bash_colors.sh
 mkdir -p "$bash_colors_dir"
 if [ ! -f "$bash_colors_path" ]; then
