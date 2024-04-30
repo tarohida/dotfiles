@@ -2,6 +2,10 @@
 gcloud-wrapper () {
     if [ "$1" = "switch" ]; then
         gcloud config set project "$2"
+    elif [ "$1" = "create" ]; then
+        if [ "$2" = "address" ]; then
+            gcloud compute addresses create $3
+        fi
     elif [ "$1" = "list" ]; then
         if [ "$2" = "instances" ]; then
             gcloud compute instances list
