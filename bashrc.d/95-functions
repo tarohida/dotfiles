@@ -87,3 +87,17 @@ ssh-upload-pubkey-to-root () {
     ssh "$1" -C "sudo su -c 'mkdir -p /root/.ssh/ && echo ${PubKey} >> /root/.ssh/authorized_keys && chmod 700 /root/.ssh/ && chmod 600 /root/.ssh/authorized_keys'"
     ssh "$1" -C "sudo sed -i 's/PermitRootLogin no/PermitRootLogin yes/g' /etc/ssh/sshd_config && sudo systemctl restart sshd"
 }
+
+ssh-deploy-dotfiles-to() {
+    target=$1
+    tmpfile=dotfiles.tar.gz
+    pushd ~
+    tar -C ~ -zcf $tmpfile ./dotfiles/
+    sftp $target <<EOF
+lcd ~
+cd ~
+put $tmpfile $tmpfile
+EOF
+    ssh $target -C "dnf install tar -y || apt-get install tar -y; tar -xf $tmpfile; cd ~/dotfiles/; bash ./setup.sh"
+    popd
+}
