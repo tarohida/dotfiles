@@ -25,3 +25,25 @@ $(pwd)/command.sh
 
 EOF
 }
+
+setup-ssh-config() {
+    cat <<'EOF' >> ~/.ssh/config
+Host github.com bitbucket.org
+    User git
+
+Host *
+    User tarohida
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+    IdentityFile ~/.ssh/id_ed25519
+    Port 22
+
+TCPKeepAlive yes
+Compression yes
+ServerAliveInterval 15
+ServerAliveCountMax 10
+
+ConnectionAttempts 1
+VisualHostKey yes
+EOF
+}
