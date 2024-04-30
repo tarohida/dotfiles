@@ -92,11 +92,11 @@ ssh-deploy-dotfiles-to() {
     target=$1
     tmpfile=dotfiles.tar.gz
     pushd ~
-    tar -C ~ -zcf $tmpfile ./dotfiles/
+    tar -C ./ -zcf $tmpfile ./dotfiles/
     sftp $target <<EOF
 lcd ~
 cd ~
-put $tmpfile $tmpfile
+put $tmpfile
 EOF
     ssh $target -C "dnf install tar -y || apt-get install tar -y; tar -xf $tmpfile; cd ~/dotfiles/; bash ./setup.sh"
     popd
