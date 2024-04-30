@@ -20,6 +20,10 @@ gcloud-wrapper () {
         gcloud compute instances set-name $2 --new-name=$3 
     elif [ "$1" = "ssh" ]; then
         gcloud compute ssh "${@:2}"
+    elif [ "$1" = "set" ]; then
+        if [ "$2" = "record" ]; then
+            gcloud dns record-sets create "$3" --zone="tarohida-jp" --type="A" --ttl="300" --rrdatas="$4"
+        fi
     else
         gcloud "$@"
     fi
