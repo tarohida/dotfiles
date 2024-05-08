@@ -16,6 +16,8 @@ gcloud-wrapper () {
         gcloud compute instances start $2
     elif [ "$1" = "stop" ]; then
         gcloud compute instances stop $2
+    elif [ "$1" = "delete" ]; then
+        gcloud compute instances delete "${@:$2}"
     elif [ "$1" = "rename" ]; then
         gcloud compute instances set-name $2 --new-name=$3 
     elif [ "$1" = "ssh" ]; then
