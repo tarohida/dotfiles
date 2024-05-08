@@ -26,6 +26,8 @@ gcloud-wrapper () {
         if [ "$2" = "record" ]; then
             gcloud dns record-sets create "$3" --zone="tarohida-jp" --type="A" --ttl="300" --rrdatas="$4"
         fi
+    elif [ "$1" = "winpass" ]; then
+        gcloud compute reset-windows-password "$2"
     else
         gcloud "$@"
     fi
