@@ -11,6 +11,10 @@ gcloud-wrapper () {
             gcloud compute instances list
         elif [ "$2" = "ip" ]; then
             gcloud compute instances list --format="table(NAME,EXTERNAL_IP)" --filter="EXTERNAL_IP:*"
+        elif [ "$2" = "machine-types" ]; then
+            gcloud compute machine-types list --filter="zone=ap-northeast1-a"
+        elif [ "$2" = "zone" ]; then
+            gcloud compute zones list --filter="name~'asia*'"
         fi
     elif [ "$1" = "start" -o "$1" = "up" ]; then
         gcloud compute instances start $2
