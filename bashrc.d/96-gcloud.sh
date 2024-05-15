@@ -23,12 +23,18 @@ gcloud-wrapper () {
     elif [ "$1" = "delete" ]; then
         gcloud compute instances delete "${@:$2}"
     elif [ "$1" = "rename" ]; then
+        gcloud compute instances stop "$2"
         gcloud compute instances set-name $2 --new-name=$3 
     elif [ "$1" = "ssh" ]; then
         gcloud compute ssh "${@:2}"
     elif [ "$1" = "set" ]; then
         if [ "$2" = "record" ]; then
             gcloud dns record-sets create "$3" --zone="tarohida-jp" --type="A" --ttl="300" --rrdatas="$4"
+        fi
+    elif [ "$1" = "change" ]; then
+        if [ "$2" = "machine-types" ]; then
+            gcloud compute instances stop "$3"
+            gcloud compute instances set-machine-type "$3" "$4"
         fi
     elif [ "$1" = "winpass" ]; then
         gcloud compute reset-windows-password "$2"
