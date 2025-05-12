@@ -4,6 +4,7 @@ setup-git () {
     read -p "メールアドレスを入力してください: " git_email
     git config --global user.name "$git_username"
     git config --global user.email "$git_email"
+    git config --global push.autoSetupRemote true
     echo "user.name: $(git config --global user.name)"
     echo "user.email: $(git config --global user.email)"
 }
@@ -18,7 +19,7 @@ EOF
     chmod +x ./command.sh
 
     cat <<EOF
-run this: 
+run this:
 
 sudo su -
 $(pwd)/command.sh
