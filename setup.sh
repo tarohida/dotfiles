@@ -30,8 +30,8 @@ mkdir -p ~/dotfiles/hook
 if [ ! -e ~/dotfiles/hook/pre.sh ]; then
     cat > ~/dotfiles/hook/pre.sh << 'EOF'
 #!/bin/bash
-# pre-hook: bashrc.d読み込み前に実行される処理
-# ここに環境変数の設定やパスの追加などを記述
+# pre-hook: bashrc.d/*.sh の読み込み前に実行される処理
+#
 
 EOF
 fi
@@ -40,8 +40,10 @@ fi
 if [ ! -e ~/dotfiles/hook/post.sh ]; then
     cat > ~/dotfiles/hook/post.sh << 'EOF'
 #!/bin/bash
-# post-hook: bashrc.d読み込み後に実行される処理
-# ここに最終的な設定やエイリアスの追加などを記述
+# post-hook: bashrc.d/*.sh 読み込み後に実行される処理
+# 最後に実行したい処理を記載
+# 例)
+# cd /var/www/html
 
 EOF
 fi
