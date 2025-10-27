@@ -5,8 +5,10 @@ setup-git () {
     git config --global user.name "$git_username"
     git config --global user.email "$git_email"
     git config --global push.autoSetupRemote true
+    git config --global core.editor vim
     echo "user.name: $(git config --global user.name)"
     echo "user.email: $(git config --global user.email)"
+    echo "core.editor: $(git config --global core.editor)"
 }
 
 setup-dirs() {
